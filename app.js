@@ -1,5 +1,7 @@
 let gameSeq=[];
 let userSeq=[];
+let maxScore=0;
+let para= document.querySelector("h3");
 
 let btns=["yellow", "red", "purple", "green"];
 
@@ -43,6 +45,8 @@ function checkAns(idx){
         }
     }else{
         h2.innerHTML=`Game over! Your score was <b>${level}</b>. <br> Press any key to start`;
+        maxScore= Math.max(level, maxScore);
+        para.innerText=`Your highest score is ${maxScore}`;
         reset();
         document.querySelector("body").style.backgroundColor="red";
         setTimeout(function(){
